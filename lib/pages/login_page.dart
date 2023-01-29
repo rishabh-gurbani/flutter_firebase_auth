@@ -2,6 +2,7 @@ import 'package:demo_login/utils/input_field.dart';
 import 'package:demo_login/utils/submit_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'forgot_password.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key, required this.showRegisterPage}) : super(key: key);
@@ -84,6 +85,28 @@ class _LoginPageState extends State<LoginPage> {
                 InputField(prompt: "Password",
                     isPassword: true,
                     controller : _passController,onChanged: (string){}),
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 5),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(
+                            context, MaterialPageRoute(builder: (context) {
+                              return ForgotPassword();
+                            })
+                          );
+                        },
+                        child: const Text('Forgot Password?',
+                          style: TextStyle(
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold),),
+                      ),
+                    ],
+                  ),
+                ),
 
                 ErrorMessage(wrong: _wrong, invalid: _invalid),
 

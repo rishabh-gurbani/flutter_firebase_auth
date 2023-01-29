@@ -22,6 +22,7 @@ class InputField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 10),
       child: TextField(
+        autocorrect: false,
         onChanged: onChanged,
         controller: controller,
         obscureText: isPassword,
